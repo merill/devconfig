@@ -1,24 +1,30 @@
 # Merill's DevBox Config
 
-## macOS
+## Clone this repository
 
-### Oh My Posh
+Clone to the folders below. If the path is different you will need to update the path in the PowerShell profile.
 
-* Install with homebrew following instructions at [https://ohmyposh.dev/docs/installation/macos](.)
+* Windows = F:\code\devconfig\
+* macOS = /Users/merill/Documents/GitHub/devconfig
+
+## Oh My Posh
+
+* Install with homebrew (macOS) and winget (Windows) following instructions at [https://ohmyposh.dev/docs/installation/](https://ohmyposh.dev/docs/installation/)
 
 ### Install Nerd Font
 
-* Install CaskadiyaCove NF font from [https://github.com/ryanoasis/nerd-fonts/tree/master#option-4-homebrew-fonts](.)
+* Install CaskadiyaCove NF font using oh-my-posh [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
 
 ### PowerShell
 
-Edit the PowerShell profile using this command
+Edit the PowerShell profile in iTerm (macOS), Windows Terminal (Windows) and VSCode using this command.
 
 ```powershell
 code $PROFILE
 ```
 
-Then copy the content from [macOS/PowerShell/Microsoft.PowerShell_profile.ps1](.) into the profile file. Update the path to the ohmyposh theme if needed.
+Then copy the content from the OS specific __macOS/Windows__-Profile.ps1 into the profile file. 
+Update paths if needed.
 
 ### iTerm2
 
@@ -26,7 +32,7 @@ iTerm Profiles are exported to [macOS/iTerm2/Profiles.json](.).
 
 If you make any changes remember to commit to git.
 
-Note: One key config is **Command** in the iTerm profile. Using the -noprofile -command params will make the prompt load up faster.
+Note: One key config is __Command__ in the iTerm profile. Using the -noprofile -command params will make the prompt load up faster.
 
 ```bash
 /usr/local/microsoft/powershell/7/pwsh -noexit -noprofile -command '. $PROFILE’
