@@ -9,7 +9,7 @@ Clone to the folders below. If the path is different you will need to update the
 
 ## Oh My Posh
 
-* Install with homebrew (macOS) and winget (Windows) following instructions at [https://ohmyposh.dev/docs/installation/](https://ohmyposh.dev/docs/installation/)
+* Install with homebrew (macOS) and winget (Windows) following instructions at [[https://ohmyposh.dev/docs/installation/](https://ohmyposh.dev/docs/)](https://ohmyposh.dev/docs)
 
 ### Install Nerd Font
 
