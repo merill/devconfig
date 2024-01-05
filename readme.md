@@ -13,8 +13,21 @@ Clone to the folders below. If the path is different you will need to update the
 
 ### Install Nerd Font
 
-* Install CaskadiyaCove NF font using oh-my-posh [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
+* Install CaskadiyaCode NF font using oh-my-posh [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
 
+```zsh
+oh-my-posh font install
+```
+
+### Install Terminal Icons
+
+* Install terminal icons by starting PowerShell and running
+
+```powershell
+Install-Module Terminal-Icons
+```
+
+```zsh
 ### PowerShell
 
 Edit the PowerShell profile in iTerm (macOS), Windows Terminal (Windows) and VSCode using this command.
@@ -35,5 +48,17 @@ If you make any changes remember to commit to git.
 Note: One key config is __Command__ in the iTerm profile. Using the -noprofile -command params will make the prompt load up faster.
 
 ```bash
-/usr/local/microsoft/powershell/7/pwsh -noexit -noprofile -command '. $PROFILE’
+/usr/local/microsoft/powershell/7/pwsh  -l -nol
 ```
+
+To find the path for pwsh use this command.
+
+```bash
+whereis pwsh
+```
+
+#### iTerm configuration
+
+* Apperance > Theme: Minimal
+* Windows > Turn off everything except 'Hide scrollbars'
+* PowerShell > Text > CaskaydiaCove | 16

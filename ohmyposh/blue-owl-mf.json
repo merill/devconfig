@@ -23,9 +23,9 @@
           "foreground": "#ffffff",
           "leading_diamond": "<transparent,#01579B>\ue0b0</>",
           "properties": {
-            "folder_icon": "\uf6d7",
+            "folder_icon": "\uf4eb",
             "folder_separator_icon": "<transparent> \ue0bd </>",
-            "home_icon": "\uf7db",
+            "home_icon": "\uf4e2",
             "style": "agnoster_short"
           },
           "style": "diamond",
@@ -48,7 +48,7 @@
             "fetch_status": true
           },
           "style": "powerline",
-          "template": " {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> \uf046 {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "template": " {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> \uf046 {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
         {
@@ -69,8 +69,8 @@
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
-          "template": "<transparent> \uf12a</> {{ .Meaning }} ",
-          "type": "exit"
+          "template": "<transparent> \uf12a</> {{ reason .Code }} ",
+          "type": "status"
         }
       ],
       "type": "prompt"
@@ -89,13 +89,12 @@
           },
           "style": "plain",
           "template": "\u276f ",
-          "type": "exit"
+          "type": "status"
         }
       ],
       "type": "prompt"
     }
   ],
   "console_title_template": "{{if .Root}} \u26a1 {{end}}{{.Folder | replace \"~\" \"🏚\" }} @ {{.HostName}}",
-  "osc99": true,
   "version": 2
 }
