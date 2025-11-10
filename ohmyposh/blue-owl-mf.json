@@ -58,11 +58,7 @@
           "properties": {
             "style": "dallas",
             "threshold": 0
-          },
-          "style": "diamond",
-          "template": " {{ .FormattedMs }}s ",
-          "trailing_diamond": "\ue0b0",
-          "type": "executiontime"
+          }
         },
         {
           "background": "#910000",
