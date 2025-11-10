@@ -16,7 +16,8 @@ Clone to the folders below. If the path is different you will need to update the
 * Install CaskadiyaCode NF font using oh-my-posh [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
 
 ```zsh
-oh-my-posh font install
+brew tap homebrew/cask-fonts
+brew install --cask font-caskaydia-cove-nerd-font
 ```
 
 ### Install Terminal Icons
@@ -38,6 +39,11 @@ code $PROFILE
 
 Then copy the content from the OS specific __macOS/Windows__-Profile.ps1 into the profile file. 
 Update paths if needed.
+
+### Hyper.is
+
+* Set font size to 16 and font family to 'CaskaydiaCove Nerd Font'
+* Set webGLRenderer to false (shows some weird artifacts on the screen if not)
 
 ### iTerm2
 
