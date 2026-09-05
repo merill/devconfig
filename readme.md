@@ -27,6 +27,67 @@ oh-my-posh init pwsh --config /Users/merill/github/devconfig/ohmyposh/blue-owl-m
 
 Note: oh-my-posh config not tested on Windows.
 
+## Zsh plugins (macOS)
+
+Oh My Posh only draws the prompt. Colouring the command line as you type and inline history suggestions come from two separate zsh plugins, which do the same job PSReadLine does in PowerShell.
+
+* `zsh-syntax-highlighting` colours commands, paths and flags as you type. A valid command turns green, an unknown one red.
+* `zsh-autosuggestions` shows a grey history based suggestion inline. Press the right arrow to accept it.
+
+```zsh
+brew install zsh-syntax-highlighting zsh-autosuggestions
+```
+
+### Add this to the end of .zshrc
+
+These go after the oh-my-posh line. `zsh-syntax-highlighting` must be the last thing sourced in the file because it wraps every line editor widget at the moment it loads.
+
+```zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
+## Atuin (shell history)
+
+[Atuin](https://atuin.sh) replaces the built in shell history with a searchable database and can sync it between machines. It takes over Ctrl+R and the up arrow in both zsh and PowerShell. Docs: [https://docs.atuin.sh](https://docs.atuin.sh/latest/guide/installation/)
+
+### Install
+
+macOS (installs to `~/.atuin/bin`):
+
+```zsh
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+```
+
+Windows:
+
+```powershell
+winget install -e Atuinsh.Atuin
+```
+
+To sync history between machines run `atuin login` (or `atuin register` for a new account) and then `atuin sync`.
+
+### Add this to .zshrc
+
+Put these near the top of the file, before the oh-my-posh line. The installer normally adds the first line for you.
+
+```zsh
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+```
+
+### Add this to $PROFILE
+
+Atuin needs PSReadLine loaded and `atuin` on the PATH before this line runs, so keep it at the end of the profile. The macOS profile in [PowerShell/](PowerShell/) adds `~/.atuin/bin` to the PATH for this reason. On Windows winget puts atuin on the PATH already.
+
+```powershell
+atuin init powershell | Out-String | Invoke-Expression
+```
+
+Note: The prompt is two lines. Atuin works this out on its own, but if the prompt jumps after closing the search screen set `$env:ATUIN_POWERSHELL_PROMPT_OFFSET = -1` before the line above.
+
+Note: atuin in PowerShell not tested on Windows.
+
 ----------
 
 ## Archive - No longer needed can be deleted.
