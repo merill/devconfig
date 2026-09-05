@@ -5,11 +5,31 @@
 Clone to the folders below. If the path is different you will need to update the path in the PowerShell profile.
 
 * Windows = F:\code\devconfig\
-* macOS = /Users/merill/Documents/GitHub/devconfig
+* macOS = /Users/merill/github/devconfig
 
 ## Oh My Posh
 
 * Install with homebrew (macOS) and winget (Windows) following instructions at [https://ohmyposh.dev/docs/installation/](https://ohmyposh.dev/docs/)
+
+See steps to edit these files at https://ohmyposh.dev/docs/installation/customize?shell=zsh
+
+### Add this to .zshrc
+
+```zsh
+eval "$(oh-my-posh init zsh --config /Users/merill/github/devconfig/ohmyposh/blue-owl-mf.json)"
+```
+
+### Add this to $PROFILE
+
+```zsh
+oh-my-posh init pwsh --config /Users/merill/github/devconfig/ohmyposh/blue-owl-mf.json | Invoke-Expression
+```
+
+Note: oh-my-posh config not tested on Windows.
+
+----------
+
+## Archive - No longer needed can be deleted.
 
 ### Install Nerd Font
 
