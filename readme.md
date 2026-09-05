@@ -78,13 +78,29 @@ eval "$(atuin init zsh)"
 
 ### Add this to $PROFILE
 
-Atuin needs PSReadLine loaded and `atuin` on the PATH before this line runs, so keep it at the end of the profile. The macOS profile in [PowerShell/](PowerShell/) adds `~/.atuin/bin` to the PATH for this reason. On Windows winget puts atuin on the PATH already.
+Atuin needs PSReadLine loaded and `atuin` on the PATH before these lines run, so keep them at the end of the profile. The macOS profile in [PowerShell/](PowerShell/) adds `~/.atuin/bin` to the PATH for this reason. On Windows winget puts atuin on the PATH already.
 
 ```powershell
+$env:ATUIN_HOST_NAME = "$(hostname)-pwsh"
 atuin init powershell | Out-String | Invoke-Expression
 ```
 
-Note: The prompt is two lines. Atuin works this out on its own, but if the prompt jumps after closing the search screen set `$env:ATUIN_POWERSHELL_PROMPT_OFFSET = -1` before the line above.
+The first line tags commands run in pwsh with their own host name. See the next section for why.
+
+Note: The prompt is two lines. Atuin works this out on its own, but if the prompt jumps after closing the search screen set `$env:ATUIN_POWERSHELL_PROMPT_OFFSET = -1` before these lines.
+
+### Keep pwsh and zsh history separate
+
+Atuin does not record which shell ran a command, but it does record a host name and has a "host" filter mode. The `ATUIN_HOST_NAME` line in the pwsh profile makes pwsh commands look like they came from a host called `<hostname>-pwsh`, while zsh keeps the real host name. With host as the default filter, Ctrl+R and the up arrow only show commands from the shell you are in. Press Ctrl+R inside the search screen to cycle to global and see everything.
+
+Add this to `~/.config/atuin/config.toml`. Both settings are already in the default file, commented out.
+
+```toml
+filter_mode = "host"
+filter_mode_shell_up_key_binding = "host"
+```
+
+Note: This only applies to commands recorded after the change. Sync is unaffected. The directory and workspace filter modes still show both shells.
 
 Note: atuin in PowerShell not tested on Windows.
 

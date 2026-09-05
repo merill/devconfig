@@ -5,4 +5,6 @@ if(-not(Get-Module -name PSReadLine)) { Import-Module -Name PSReadLine | Out-Nul
 Set-PSReadLineOption -PredictionSource History -PredictionViewStyle ListView | Out-Null
 
 # Atuin shell history (https://atuin.sh). Needs PSReadLine loaded and atuin on the PATH before this line.
+# Tag pwsh commands with their own host name so the Atuin host filter separates pwsh and zsh history
+$env:ATUIN_HOST_NAME = "$(hostname)-pwsh"
 atuin init powershell | Out-String | Invoke-Expression
