@@ -63,13 +63,6 @@
         },
         {
           "properties": {
-            "cache_duration": "none",
-            "style": "dallas",
-            "threshold": 0
-          }
-        },
-        {
-          "properties": {
             "cache_duration": "none"
           },
           "template": "<transparent> \uf12a</> {{ reason .Code }} ",
@@ -90,7 +83,7 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": "❯ ",
+          "template": "{{ if eq .Shell \"pwsh\" }}❯{{ else }}${{ end }} ",
           "foreground": "#ffffff",
           "type": "status",
           "style": "plain",
